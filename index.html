@@ -10,13 +10,14 @@
     <h1>Cik ātrs tu esi!</h1>
     <p>Uzspied uz pirmā attēla, pēc tam, pēc iespējas ātrāk,noklikšķini uz otra attēla, lai noskaidrotu savu reakcijas ātrumu.</p>
     <p>Tavs laiks:<span id="tavsLaiks">te būs redzams laiks</span></p>
-    <div id="attels" style="position: absolute;"></div>
+    <div id="attels" style="position: absolute background-color:'#fcba03';"></div>
 
     <script>
         var sakums;//piefiksē sākuma laiku
         var beigas;//piefiksē beigu laiku
         var bilde=document.getElementById("attels");//JS piesaistu div kastei ar id=attels
         var game=false;//definēts mainīgaias game, kas saka, ka spēle sākumā nenotiek
+        
 
         //f-cija, kas nejaušā punktā parāda attēlu pārlūkprogrammas logā
         function paradies(){
@@ -25,7 +26,9 @@
 
             document.getElementById("attels").style.top=top+"px";
             document.getElementById("attels").style.left=left+"px";
-            document.getElementById("attels").style.backgroundColor="red";
+            //document.getElementById("attels").style.backgroundColor="red";
+            document.getElementById("attels").style.display="block";
+            console.log("hei!");
         }
         paradies();
     </script>

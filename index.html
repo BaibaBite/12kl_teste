@@ -11,5 +11,23 @@
     <p>Uzspied uz pirmā attēla, pēc tam, pēc iespējas ātrāk,noklikšķini uz otra attēla, lai noskaidrotu savu reakcijas ātrumu.</p>
     <p>Tavs laiks:<span id="tavsLaiks">te būs redzams laiks</span></p>
     <div id="attels" style="position: absolute;"></div>
+
+    <script>
+        var sakums;//piefiksē sākuma laiku
+        var beigas;//piefiksē beigu laiku
+        var bilde=document.getElementById("attels");//JS piesaistu div kastei ar id=attels
+        var game=false;//definēts mainīgaias game, kas saka, ka spēle sākumā nenotiek
+
+        //f-cija, kas nejaušā punktā parāda attēlu pārlūkprogrammas logā
+        function paradies(){
+            var top=Math.random()*150;//nejauši izvēlas attēla y koordināti
+            var left=Math.random()*400;///nejauši izvēlas attēla x koordināti
+
+            document.getElementById("attels").style.top=top+"px";
+            document.getElementById("attels").style.left=left+"px";
+            document.getElementById("attels").style.backgroundColor="red";
+        }
+
+    </script>
 </body>
 </html>

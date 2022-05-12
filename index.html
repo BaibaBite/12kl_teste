@@ -26,11 +26,14 @@
 
             document.getElementById("attels").style.top=top+"px";
             document.getElementById("attels").style.left=left+"px";
-            //document.getElementById("attels").style.backgroundColor="red";
+            document.getElementById("attels").style.backgroundColor="red";
             document.getElementById("attels").style.display="block";
             console.log("hei!");
         }
-        paradies();
+        function nokavet(){
+				setTimeout(paradies, Math.random()*2000);
+			}
+        nokavet();
     </script>
 </body>
 </html>

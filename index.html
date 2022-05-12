@@ -10,7 +10,7 @@
     <h1>Cik ātrs tu esi!</h1>
     <p>Uzspied uz pirmā attēla, pēc tam, pēc iespējas ātrāk,noklikšķini uz otra attēla, lai noskaidrotu savu reakcijas ātrumu.</p>
     <p>Tavs laiks:<span id="tavsLaiks">te būs redzams laiks</span></p>
-    <div id="attels" style="position: absolute background-color:'#fcba03'; width:200px; height:200px"></div>
+    <div id="attels" style="position:absolute; width:200px; height:200px"></div>
 
     <script>
         var sakums;//piefiksē sākuma laiku
@@ -26,12 +26,37 @@
 
             document.getElementById("attels").style.top=top+"px";
             document.getElementById("attels").style.left=left+"px";
-            document.getElementById("attels").style.backgroundColor="red";
+            //document.getElementById("attels").style.backgroundColor="red";
             document.getElementById("attels").style.display="block";
             console.log("hei!");
+            sakums=new Date().getTime();//piefiksē pirmā attēla parādīšanās laiku
+            console.log(sakums);
+
+          if (!game){
+            game=true;//pasludina spēli par sākušos
+            bilde.innerHTML="<img src='buris.png' width=200px>";
+            document.getElementById("attels").onclick=function(){
+                paradies();
+            }
+          }
+          else{
+              game=false;//pārtrauc spēli
+              bilde.innerHTML="<img src='taurenis.png' width=200px>";//parāda otro bildi
+              document.getElementById("attels").onclick=function(){
+                document.getElementById("attels").style.display="none";//paslēpj attēla bloku
+                beigas=new Date().getTime();//piefiksē spēles beigu laiku
+                var mansLaiks=(beigas-sakums)/1000;//aprēķina reakcijas laiku
+                document.getElementById("tavsLaiks").innerHTML=mansLaiks+"s"; 
+            }
+          }  
+
+
         }
-        
-        paradies();
+        //f-cijas, kas parāda bloku pēc nejauši izvēlēta laika
+        function bulba(){
+            setTimeout(paradies,Math.random()*2000);
+        }
+        bulba();
     </script>
 </body>
 </html>
